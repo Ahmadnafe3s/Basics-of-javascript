@@ -2,7 +2,7 @@
 
 console.log("har\"".length);
 
-// include , startwith , endwith functions of string
+// include , startwith , endwith , replace functions of string
 
 // includes
 let sen = 'my name is nafees ahmad my home town is tulsipur'

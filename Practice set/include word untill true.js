@@ -14,11 +14,3 @@ while (sen.includes(find) != true) {
 }
 
 //the method includes return true.........
-
-let x 
-
-while (x % 2 == 0 != true) {
-    x = prompt('Enter number')
-    x = Number.parseInt(x)
-    console.log(x % 2 == 0 ? 'yes this is even' : 'no this is not even' );
-}
