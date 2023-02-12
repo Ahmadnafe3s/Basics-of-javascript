@@ -61,7 +61,7 @@ console.log(num3.concat(num4));
 
 let s = [9, 7, 666, 44, 5, 27, 343, 1]
 
-const compare = (a, b) => { // if compare are negaive then smallest number will take place of lagest number it will sort in assending order for desending order b - a negative term will take 1st place
+const compare = (a, b) => { // if compare are negative then smallest number will take place of lagest number it will sort in assending order for desending order b - a negative term will take 1st place
     return a - b
 }
 

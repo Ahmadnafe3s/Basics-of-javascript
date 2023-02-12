@@ -21,4 +21,6 @@ seprate : "alag",
 sunny : "leonie"
 }
 
-console.log(dict['sunny']);
+for(let a in dict){
+    console.log(dict[a]);
+}
