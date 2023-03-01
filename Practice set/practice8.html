@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 8</title>
+    <style>
+        
+        div{
+            display: flex;
+            justify-content: center;
+        }
+        div button{
+            margin: 20px 20px;
+            padding: 6px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #btn1{
+            background-color: white;
+            color: red;
+            border: 2px solid red;
+            transition: 0.2s;
+        }
+        #btn2{
+            background-color: white;
+            color: teal;
+            border: 2px solid teal;
+            transition: 0.2s;
+        }
+        #btn3{
+            background-color: white;
+            color: orange;
+            border: 2px solid orange;
+            transition: 0.2s;
+        }
+
+        #btn1:hover{
+            background-color: red;
+            color: white;
+            /* border: 2px solid black; */
+        }
+        #btn2:hover{
+            background-color: teal;
+            color: white;
+        }
+        #btn3:hover{
+            background-color: orange;
+            color: black;
+        }
+        #btn1:active{
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }
+        #btn2:active{
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }
+        #btn3:active{
+            background-color: rgb(255, 255, 255);
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <button id="btn1">RED</button>
+        <button id="btn2">TEAL</button>
+        <button id="btn3">ORANGE</button>
+    </div>
+
+    <script>
+        let btn1 = document.getElementById('btn1')
+        let btn2 = document.getElementById('btn2')
+        let btn3 = document.getElementById('btn3')
+
+        btn1.onclick = ()=>{
+            document.body.style.background = 'red'
+        }
+        btn2.onclick = ()=>{
+            document.body.style.background = 'teal'
+        }
+        btn3.onclick = ()=>{
+            document.body.style.background = 'orange'
+        }
+
+      btn1.ondblclick = () =>{
+        document.body.style.background = 'white'
+      }
+      btn2.ondblclick = () =>{
+        document.body.style.background = 'white'
+      }
+      btn3.ondblclick = () =>{
+        document.body.style.background = 'white'
+      }
+    </script>
+</body>
+</html>

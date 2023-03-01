@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+            display: flex;
+            background-color: lightsteelblue;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 25px;
+        }
+
+        nav ul {
+            display: flex;
+            
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 10px;
+            padding: 5px 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        @media screen and (max-width : 500px){
+            nav ul{
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Status</li>
+            <li>Feedback</li>
+            <li>Email</li>
+            <li>Download CV</li>
+        </ul>
+    </nav>
+    <div class="div">
+        <h1>hello</h1>
+        <h2>How are you</h2>
+        <h3>Nothing</h3>
+    </div>
+    <script>
+        // problem 1st styling element by Tag name
+        // let li = document.getElementsByClassName('li')  
+        // let s = li.length
+        // for(let i = 0 ; i < s ; i++){                   
+        //     li[i].style.background = 'red'
+        // }
+
+        // OR
+
+        // let id = document.getElementsByTagName('nav')[0].firstElementChild.children
+        // console.log(id);
+        //  let size = id.length
+        //  for (let index = 0; index < size; index++) {
+        //        id[index].style.background = 'orange'
+        //  }
+
+        //OR
+
+        let id = Array.from(document.getElementsByTagName('nav')[0].firstElementChild.children)
+        id.forEach(element => {
+            element.style.background = 'orange'
+        });
+        //Note :- 1st of all we have to convert it into array for forEach loop
+
+        // problem 2nd styling 1st and last element of a parent
+
+        let div = document.getElementsByTagName('div')[0]
+        console.log(div);
+        div.firstElementChild.style.color = 'green'
+        div.lastElementChild.style.color = 'orange'
+
+    </script>
+</body>
+
+</html>

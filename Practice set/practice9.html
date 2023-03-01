@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        console.time('Time of all')
+        // Question 1 :- WAP to load a javascript file in the browser and after load use .then to alert.
+
+        // const load = ((src) => {
+        //    return new Promise((resolve, reject) => {  // function will reaturn promise
+        //         let script = document.createElement('script')
+        //         script.type = "text/javascript"
+        //         script.src = src
+        //         document.body.appendChild(script)
+        //         script.onload = () => {
+        //             resolve(1)
+        //         }
+        //         script.onerror = () => {
+        //             reject(0)
+        //         }
+        //     })
+
+        // })
+
+        // let p6 = load("https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js")
+
+        // p6.then((value) => {
+        //     alert('File has been loaded');
+
+        // }).catch((error)=>{
+        //     alert('Script has been rejected') // error handling
+        // })
+
+        //Question :- 2 Privios Program in async await function
+
+
+        async function load(src) {
+            let a = new Promise((resolve, reject) => {  // function will reaturn promise
+                let script = document.createElement('script')
+                script.type = "text/javascript"
+                script.src = src
+                document.body.appendChild(script)
+                script.onload = () => {
+                    resolve(1)
+                }
+                script.onerror = () => {
+                    reject(0)
+                }
+            })
+
+            let b = await a
+            return b
+        }
+        let p6 = load("https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js")
+
+        p6.then((value) => {
+            console.log('File has been loaded');
+
+        }).catch((error) => {
+            console.log('Script has been rejected ' + error.name) // error handling
+        })
+        console.log('Promise is pending');
+
+
+        // Question :- 3 create a promise which reject after 3 seconds use async await to get its value . use try and catch to handle error
+
+        let rej = () => {          // here function name is rej variable
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    reject(new Error("This is rejected"))
+                }, 3000);
+            })
+        }
+
+        let c = async () => {
+            try {
+                let d = await rej()
+                console.log(d);      // Here error will generate therefor it will be catched..
+            }
+            catch (err) {
+                console.log("This is handled");
+            }
+        }
+
+        c()
+        console.log('Await is working');
+
+        // Question :- 4 WAP using promise.all() an async await to await 3 promises compare its result with the case where we await promises one by one 
+
+        let delay1 = async () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(10)
+                }, 2000);
+            })
+        }
+        let delay2 = async () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(20)
+                }, 1000);
+            })
+        }
+        let delay3 = async () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(30)
+                }, 3000);
+            })
+        }
+
+        const wait = async(callback)=>{
+
+            console.time('Run')
+        let a1 = delay1()
+        let a2 = delay2() //if we will make seprate seprate promises await then it will sum of all time
+        let a3 = delay3()
+
+        let a1a2a3 = await Promise.all([a1, a2, a3]) // it will print all resolve value in an shortes period of time 
+
+        console.log(a1a2a3);
+        console.timeEnd('Run')
+        }
+
+        wait()
+        
+        console.timeEnd('Time of all')
+    </script>
+</body>
+
+</html>

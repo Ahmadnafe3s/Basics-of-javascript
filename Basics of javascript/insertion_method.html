@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertion</title>
+</head>
+<body>
+    <div class="container">
+        <div id="first">This is first element</div>
+    </div>
+
+    <script>
+        let a = document.getElementsByTagName('div')[0] //getting parent container
+        let div = document.createElement('h1') // creating an element
+        div.innerHTML = 'Hello World' // inserting attribute in the created element
+        // a.appendChild(div) // adding child in parent container..
+        // a.appendChild(div) // adding child in parent container..
+         a.prepend(div) //  addind element before the container..
+    </script>
+</body>
+</html>
+
+<!-- there are several other methods too -->

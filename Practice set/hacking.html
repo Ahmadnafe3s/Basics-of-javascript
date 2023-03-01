@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: black;
+            color: green;
+            
+            font-family: 'Architects Daughter', cursive;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="d1"></div>
+    
+         
+    <script>
+    
+    let joke = ['NAFEE','BSHDHAIHFH','BBFIAH']
+let b = 0
+    let e = setInterval(() => {
+        b++
+        let a = document.createElement('h5')
+        a.innerHTML = joke[b]
+        document.body.appendChild(a)
+        
+        if(b == joke.length){
+            clearInterval(e)
+        }
+        
+     }, 1000);
+     
+    </script>
+</body>
+</html>

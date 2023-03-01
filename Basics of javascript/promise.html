@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+
+                console.log("Hello this promise has been rejected");
+                reject(new Error('Your promise doest fulfilled'))
+            }, 5000)
+        })
+        let promise2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+
+                console.log("Hello this promise has been fulfiled");
+                resolve(true)
+            }, 5000)
+        })
+
+        promise2.then((value)=>{ //it takes value argument
+            console.log(value);
+        })
+
+        // promise2.then(alert) // also we can write this.... 
+
+        promise.catch((error) => { // it takes error argument
+            console.log('code error');
+        })
+
+        // promise.catch(alert) //also we can use this 
+    </script>
+</body>
+
+</html>

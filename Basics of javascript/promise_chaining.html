@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaining</title>
+</head>
+
+<body>
+
+    <script>
+        // let p1 = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         console.log('I am resolved');
+        //         resolve(true)
+        //     }, 2000);
+        // })
+
+        // p1.then((value) => {
+        //     console.log('i am resoloved with', value);
+        //     let p2 = new Promise((resolve, reject) => {
+
+        //         setTimeout(() => {
+        //             resolve('i am resolved 2')
+        //         }, 5000);
+
+        //     })
+        //     return p2
+        // }).then((value) => {
+
+        //     console.log(value);
+
+        //     return new Promise((resolve, reject) => { // also we can return it without any variable (return)
+        //         setTimeout(() => {
+        //             console.log('This is 3rd');
+        //             resolve('I am resolved 3')
+        //         }, 7000);
+
+        //     })
+
+        // }).then((value) => {
+        //     console.log(value);
+        // })
+
+
+        const load = ((src) => {
+           return new Promise((resolve, reject) => {  // function will reaturn promise
+                let script = document.createElement('script')
+                script.type = "text/javascript"
+                script.src = src
+                document.body.appendChild(script)
+                script.onload = () => {
+                    resolve(1)
+                }
+                script.onerror = () => {
+                    reject(0)
+                }
+            })
+        })
+
+        let p6 = load("https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js")
+
+        p6.then((value) => {
+            console.log(value);
+            
+        }).catch((error)=>{
+            alert('Script has been rejected') // error handling
+        })
+
+
+    </script>
+</body>
+</html>

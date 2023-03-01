@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="hey" id="d1"> <p>Hey this is a container</p></div>
+    <div class="hey2" id="d2"> <p>Hey this is a container</p></div>
+    <div id="d3" data-game="PUBG" data-player="nafees"> <p>Hey this is a container</p></div>
+
+    <script>
+        let a = d1.getAttribute('class') // it will show us the class name
+        let b = d1.hasAttribute('class') // it will show us true or false for existance of class
+         let c = d2.setAttribute('hidden' , 'true') // method used to set value of an attribute
+         let d = d2.removeAttribute('class')
+        console.log(a);
+        console.log(b); 
+        console.log(d); 
+    </script>
+</body>
+</html>

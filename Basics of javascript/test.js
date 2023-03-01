@@ -1,24 +1,15 @@
-let sen = 'Hey bro what you are doing there'
-
-let find
-
-while (sen.includes(find) != true) {
-
-    find = prompt("Enter Word")
-    if (sen.includes(find)) {
-        console.log("Yes the word", find, 'is include');
-    }
-    else {
-        console.log("No the word", find, 'is include')
-    }
+const asy = async()=>{
+    let p = new Promise((resolve , reject)=>{
+    setTimeout(() => {
+      resolve(10)
+    }, 3000);
+})
+let b =  p
+return b
 }
 
-//the method includes return true.........
+let a =  asy()
 
-let x 
-
-while (x % 2 == 0 != true) {
-    x = prompt('Enter number')
-    x = Number.parseInt(x)
-    console.log(x % 2 == 0 ? 'yes this is even' : 'no this is not even' );
-}
+a.then((x)=>{
+    console.log('Hey this is resolve with value '+ x);
+}).catch

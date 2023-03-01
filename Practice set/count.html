@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: center;
+        }
+
+        #count {
+            border: 2px solid black;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        #hide {
+            background-color: white;
+
+            padding: 10px 20px;
+            font-size: 25px;
+            margin-top: 20px;
+            border-radius: 20px;
+            font-weight: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+            border: 2px solid black;
+        }
+
+        #hide:hover {
+            border: 2px solid white;
+            background-color: black;
+            color: white;
+        }
+
+        .new {
+            background-color: green;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <button hidden id="hide">Click me😍</button>
+        <h2 id="count">Starting...</h2>
+    </div>
+
+    <script>
+        let c = 1
+        const count = (() => {
+            document.getElementById('count').innerHTML = c++
+            if (c == 12) {
+                clearInterval(inter)
+                document.getElementById('count').remove()
+                document.getElementById('hide').removeAttribute('hidden')
+            }
+        })
+
+        let inter = setInterval(count, 1000)
+
+
+        let a = document.getElementById('hide') // we can store inside the variable or can apply direct property
+        a.onclick = () => { // we have to make function 
+            alert('Hey Faizan you just clicked the button 😎') // values 
+            // node.methods 
+        }
+
+
+
+    </script>
+</body>
+
+</html>

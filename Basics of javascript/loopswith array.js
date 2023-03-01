@@ -15,7 +15,7 @@ for (let i in arry) {
 
 // For each loop
 
-arry.forEach((element )=>{
+arry.forEach((element)=>{
     console.log(element);  // it only prints all the elements of a loop ...
 })
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Value 1')
+            }, 5000);
+        })
+        let p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // resolve('Value 2')
+                reject(new Error('I am error'))
+            }, 3000);
+        })
+        let p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Value 3')
+            }, 4000);
+        })
+
+        //Then handling of both promises
+        // p1.then((value) => {
+        //     console.log(value);
+        // })
+        // p2.then((value) => {
+        //     console.log(value);
+        // })
+        // p3.then((value) => {
+        //     console.log(value);
+        // })
+
+        // method of handling both promises one go
+
+        // 1. promise.all
+        // let promise_all = Promise.all([p1, p2, p3])
+
+        // 2 promise.settled
+        // let promise_all = Promise.allSettled([p1, p2, p3])
+        
+        // 3 promise.any
+        // let promise_all = Promise.any([p1, p2, p3]) // will print value of 3rd promise.
+        
+        // let promise_all = Promise.resolve(56)
+        let promise_all = Promise.reject(new Error('Hey i am reject'))
+
+        promise_all.then((value) => { // it will print an array in the largest promise time 😎 array will contain on their each index values od all promises according to order
+            console.log(value);
+        })
+
+        console.log(typeof promise_all);
+
+    </script>
+</body>
+
+</html>

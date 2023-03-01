@@ -20,7 +20,7 @@ const item = {
     
 }
 
-console.log(item["nafees"] , item.nafees);
+// console.log(item["nafees"] , item.nafees);
 
 const employes = [
     {name : 'salman' , age : 28} , 
