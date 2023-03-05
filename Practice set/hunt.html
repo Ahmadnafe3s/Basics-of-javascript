@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentHunt.com</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+  <style>
+    nav {
+      color: green !important;
+      background-color: #e9ecef;
+    }
+  </style>
+</head>
+
+<body class="bg-dark">
+
+  <!-- nav bar -->
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="http://127.0.0.1:5500/Practice%20set/hunt.html?"><span
+        style="font-size: 25px;">Talent</span><span style="color: red;"> Hunt</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- alert -->
+
+  <!-- jumbortan -->
+  <div class="jumbotron ">
+    <h1 class="display-4">Programming <span style="color: red;">Contest</span> </h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+      featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+
+  <!-- cards -->
+
+  <div class="container">
+    <div id="card" class="row" style="display: flex; justify-content: space-around; ">
+      <!-- here cards will insert -->
+    </div>
+  </div>
+
+<!-- footer -->
+
+  <footer class="bd-footer pb-1 pt-4 bg-dark bg-body-tertiary">
+    <div class="container text-light text-center">
+      <h4>Disclaimer</h4>
+      <p>This website is made only for people help if any API or Url owner has any issue then he can contact me via
+        given contact methods. </p>
+    </div>
+
+    <div class="container-fluid text-light" style="display: block; justify-content: center;">
+      <div>
+        <h1>Reach out to <span class="text-danger">me!</span></h1>
+      </div>
+      <div>
+        <p style="display: inline-block;">For just saying Hii or knowing more about to me 😁</p>
+      </div>
+    </div>
+
+    </div>
+    <div>
+      <a href=""><img src="https://img.icons8.com/glyph-neue/512/github.png" alt="" style="width: 70px;"></a>
+      <a href=""><img src="https://img.icons8.com/glyph-neue/512/github.png" alt="" style="width: 70px;"></a>
+      <a href=""><img src="https://img.icons8.com/glyph-neue/512/github.png" alt="" style="width: 70px;"></a>
+      <a href=""><img src="https://img.icons8.com/glyph-neue/512/github.png" alt="" style="width: 70px;"></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+  <script>
+    let url = fetch("https://kontests.net/api/v1/all")
+
+    url.then((response) => {
+      return response.json()
+    }).then((response) => {
+      console.log(response);
+
+      for (const item in response) {
+        console.log(response[item].name);
+        document.getElementById('card').innerHTML += `<div class="card border-danger mt-4 mb-4" style="width: 18rem;"> 
+
+        <div class="card-body bg-info text-light">
+          <h5 class="card-title" style = "font-size : 25px">${response[item].name}</h5>
+          <hr>
+          <p class="card-text" style = "font-size: 13px">Start Time - ${response[item].start_time}</p>
+          <p class="card-text" style = "font-size: 13px">End Time - ${response[item].end_time}</p>
+          <p class="card-text" style = "font-size: 13px">Status - ${response[item].status}</p>
+          <p class="card-text" style = "font-size: 13px">Site - ${response[item].site}</p>
+          <div style="text-align : center;">
+          <a href="${response[item].url}" class="btn btn-outline-danger" target = "main()">Visit Site</a>
+          </div>
+        </div>
+      </div>` // Storing element again and again
+      }
+
+    })
+
+
+  </script>
+
+
+</body>
+
+</html>
