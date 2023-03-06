@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bootstrap demo</title>
@@ -19,10 +20,30 @@
     }
   </style>
 </head>S
+=======
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+        input {
+            margin: 4px 0;
+        }
+
+        h5 {
+            padding-top: 17px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+>>>>>>> modify
 
 <body class="bg-dark text-light">
 
 
+<<<<<<< HEAD
   <div class="container-fluid">
     <div class="row">
       <H5>Welcome to your todo list....</H5>
@@ -105,6 +126,97 @@
 
 
   </script>
+=======
+    <div class="container-fluid">
+        <div class="row">
+            <H5>Welcome to your todo list....</H5>
+            <h6>What you would like to do just click the button....</h6>
+            <br>
+            <div>
+                <input id="input1" type="text" placeholder="Enter Your Title" onkeyup="onkey()">
+                <input id="input2" type="text" placeholder="Enter Your Task" onkeyup="onkey1()">
+                <button type="button" class="btn btn-warning mb-1 " onclick="added()">Add Task</button>
+                <p id="count" style="font-size: 13px; color: gray;"></p>
+            </div>
+            <br>
+            <div id="btn-2">
+                <button type="button" class="btn btn-danger " onclick="removed()">Remove Task</button>
+            </div>
+            <br>
+            <div id="btn-3">
+                <button type="button" class="btn btn-info mt-2" onclick="seetask()">See Tasks</button>
+            </div>
+            <div id="contain" class="mt-2">
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        let tr = true, tr1, arr = []
+
+        // input1
+        let = onkey = () => {
+            count.innerHTML = `Character : ${(input1.value.length)}`
+        }
+
+        // input2
+
+        let = onkey1 = () => {
+            count.innerHTML = `Character : ${(input2.value.length)}` // function not be similar
+        }
+
+
+
+        // button 1st
+        let = added = () => {
+            const value = input1.value
+            const key = input2.value
+
+            if (((input1.value.length) && (input2.value.length)) == 0) {
+                alert("Please Enter Title And Task Properly..")
+            }
+            else {
+                localStorage.setItem(value, key)
+                // document.getElementById("btn-2").removeAttribute("hidden")
+                // document.getElementById("btn-3").removeAttribute("hidden")
+            }
+        }
+
+        // button 2nt
+
+        let = removed = () => {
+            let remtitle = prompt("Please Enter Your Title")
+
+            if (tr == false) { // if it become false it will not exicute..
+                contain.innerHTML += `<p>... Your task ${(localStorage.getItem(remtitle))} has been successfully removed ...</p>`
+                localStorage.removeItem(remtitle)
+
+            }
+
+            tr = confirm("Do you really want to remove your task..")
+        }
+        // button 3rd
+
+        let = seetask = () => {
+
+            for (let i = 0; i < localStorage.length; i++) {
+
+                let keys = localStorage.key(i)
+
+                contain.innerHTML += `<p>... Your Title's : ${keys} Task is : ${(localStorage.getItem(keys))} ...</p>`
+
+            }
+        }
+
+
+
+    </script>
+>>>>>>> modify
 </body>
 
 </html>
