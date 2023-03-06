@@ -29,16 +29,17 @@
             <h6>What you would like to do just click the button....</h6>
             <br>
             <div>
-                <input id="a1" type="text" placeholder="Enter your task">
+                <input id="input1" type="text" placeholder="Enter Your Title" onkeyup="onkey()">
+                <input id="input2" type="text" placeholder="Enter Your Task" onkeyup="onkey1()">
                 <button type="button" class="btn btn-warning mb-1 " onclick="added()">Add Task</button>
                 <p id="count" style="font-size: 13px; color: gray;"></p>
             </div>
             <br>
-            <div id="btn-2" hidden>
+            <div id="btn-2">
                 <button type="button" class="btn btn-danger " onclick="removed()">Remove Task</button>
             </div>
             <br>
-            <div id="btn-3" hidden>
+            <div id="btn-3">
                 <button type="button" class="btn btn-info mt-2" onclick="seetask()">See Tasks</button>
             </div>
             <div id="contain" class="mt-2">
@@ -52,70 +53,59 @@
 
     <script>
 
-        let tr = true, tr1 = true, arr = []
+        let tr = true, tr1, arr = []
 
-        // Function for lenght of input-text...
-        const length = () => {
-            let store1
-            return store1 = a1.value.length
+        // input1
+        let = onkey = () => {
+            count.innerHTML = `Character : ${(input1.value.length)}`
         }
+
+        // input2
+
+        let = onkey1 = () => {
+            count.innerHTML = `Character : ${(input2.value.length)}` // function not be similar
+        }
+
+
 
         // button 1st
-        a1.onkeyup = () => {
-            count.innerHTML = `Character : ${length()}`
-
-
-            //   if (store1 == 0) {
-            //     
-            //     document.getElementById("btn-3").setAttribute("hidden" , "true")
-            //   }else{
-            // }
-        }
-
         let = added = () => {
-            const store = a1.value
-            arr.push(store)
+            const value = input1.value
+            const key = input2.value
 
-            if (length() == 0) {
-                alert("Please Enter somthing")
-
-            } else {
-                localStorage.setItem("task", JSON.stringify(arr))
-                document.getElementById("btn-2").removeAttribute("hidden")
-                document.getElementById("btn-3").removeAttribute("hidden")
-                
+            if (((input1.value.length) && (input2.value.length)) == 0) {
+                alert("Please Enter Title And Task Properly..")
             }
-
+            else {
+                localStorage.setItem(value, key)
+                // document.getElementById("btn-2").removeAttribute("hidden")
+                // document.getElementById("btn-3").removeAttribute("hidden")
+            }
         }
 
         // button 2nt
-       
-           
-           
-        let storedBlogs
-        
 
         let = removed = () => {
-             storedBlogs = JSON.parse(localStorage.getItem('task'));
-            if (tr1) {
-                for (let i of storedBlogs) {
-              contain.innerHTML += `<p>... Your task ${i} has been successfully removed ...</p>`
+            let remtitle = prompt("Please Enter Your Title")
 
-        }
-                   
-                    localStorage.removeItem("task")
-                     
-                tr1 = confirm("Do you really want to remove your task..")
+            if (tr == false) { // if it become false it will not exicute..
+                contain.innerHTML += `<p>... Your task ${(localStorage.getItem(remtitle))} has been successfully removed ...</p>`
+                localStorage.removeItem(remtitle)
+
             }
+
+            tr = confirm("Do you really want to remove your task..")
         }
         // button 3rd
 
         let = seetask = () => {
 
-            for (let i = 0; i < storedBlogs.length; i++) {
-            
-                contain.innerHTML += `<p>... Your task is ${(storedBlogs[i])} ...</p>`
-                
+            for (let i = 0; i < localStorage.length; i++) {
+
+                let keys = localStorage.key(i)
+
+                contain.innerHTML += `<p>... Your Title's : ${keys} Task is : ${(localStorage.getItem(keys))} ...</p>`
+
             }
         }
 
